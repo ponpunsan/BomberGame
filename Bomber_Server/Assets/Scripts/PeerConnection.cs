@@ -1,7 +1,7 @@
 using LiteNetLib;
 using LiteNetLib.Utils;
-using System;
 using Newtonsoft.Json;
+using UnityEngine;
 
 public class PeerConnection
 {
@@ -29,8 +29,13 @@ public class PeerConnection
     {
         this.playerController = playerController;
     }
+
     public void Disconnected()
     {
-        server.Remove(this);
+        if (playerController != null)
+        {
+            Player?.Remove();
+            server.Remove(this);
+        }
     }
 }
