@@ -32,10 +32,7 @@ public class PeerConnection
 
     public void Disconnected()
     {
-        if (playerController != null)
-        {
-            Player?.Remove();
-            server.Remove(this);
-        }
+        Player?.Remove();
+        server.Remove(this);
     }
 }
